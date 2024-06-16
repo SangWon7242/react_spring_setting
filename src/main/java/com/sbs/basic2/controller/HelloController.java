@@ -1,21 +1,18 @@
-package com.sbs.basic2;
+package com.sbs.basic2.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class HelloController {
   int no = 0;
 
   @GetMapping("/usr/hello")
-  @ResponseBody
   public String Hello() {
-    return "Hello World";
+    return "반가워";
   }
 
   @GetMapping("/usr/increase")
-  @ResponseBody
   public int increaseNo() {
     no++;
 
@@ -23,7 +20,6 @@ public class HelloController {
   }
 
   @GetMapping("/usr/decrease")
-  @ResponseBody
   public int decreaseNo() {
     no--;
 
@@ -31,10 +27,14 @@ public class HelloController {
   }
 
   @GetMapping("/usr/reset")
-  @ResponseBody
   public int resetNo() {
     no = 0;
 
     return no;
+  }
+
+  @GetMapping("/usr/write")
+  public void doWrite(String title, String body) {
+
   }
 }
